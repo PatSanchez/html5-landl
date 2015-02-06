@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Timing API</title>
+    <script src="script.js"></script>
+    <style>
+        #inject-garbage-here {
+            width: 400px;
+            float: left;
+        }
+        #inject-performance-here {
+            width: 300px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Clicking the button below will generate garbage and display a table comprised of random letters and numbers</p>
+        <button onclick="doLotsOfStuff()">Let's do it!</button>
+    </div>
+    <table id="inject-garbage-here">
+
+    </table>
+    <table id="inject-performance-here">
+
+    </table>
+
+</body>
+</html>
