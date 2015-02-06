@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Small HTML5 Upgrades</title>
+        <link rel="prefetch" href="http://placekitten.com/1000/1000" />
+        <style>
+            #fullscreen img { max-width: 300px; }
+            #fullscreen img:-webkit-full-screen { max-width: 100%; }
+        </style>
+    </head>
+    <body>
+        <h1>Small Features</h1>
+        <div id="autofocus" class="feature">
+            <h2>Autofocus</h2>
+            <label>
+                <span>This is an autofocused input</span>
+                <br/>
+                <input autofocus/>
+            </label>
+        </div>
+
+        <div id="content-editable" class="feature">
+            <h2>Content Editable</h2>
+            <div contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sodales orci vel odio finibus maximus efficitur et nunc. Ut pellentesque dictum urna a aliquet. Nulla gravida lectus sed purus maximus, ac sagittis diam faucibus. Sed in erat laoreet tortor laoreet efficitur at non libero. Quisque non risus suscipit, elementum nisl eu, dignissim augue. Nullam in pellentesque dui. Sed molestie, orci id consequat congue, odio ex aliquam mi, eget accumsan lacus dolor eu augue. Integer ut tincidunt metus. Phasellus ultrices mattis venenatis.</div>
+        </div>
+
+        <div id="pre-fetching" class="feature">
+            <h2>Pre-fetching</h2>
+            <code>&lt;link rel=&quot;prefetch&quot; href=&quot;http://placekitten.com/1000/1000&quot; /&gt;</code>
+        </div>
+
+        <div id="fullscreen" class="feature">
+            <h2>Fullscreen</h2>
+            <img id="full-screen-me" src="https://trello-backgrounds.s3.amazonaws.com/535ad3dbd31fece30cee196e/1500x1000/3f703dffa1c5b1465c9964d9248cd04e/gatorsnatchers.jpg"/>
+            <br/>
+            <button onclick="launchIntoFullscreen(document.getElementById('full-screen-me'))">BIG!</button>
+        </div>
+
+    <script>
+        //Credit to http://davidwalsh.name/fullscreen
+        function launchIntoFullscreen(element) {
+            if(element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if(element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+            } else if(element.webkitRequestFullscreen) {
+                element.webkitRequestFullscreen();
+            } else if(element.msRequestFullscreen) {
+                element.msRequestFullscreen();
+            }
+        }
+    </script>
+    </body>
+</html>
