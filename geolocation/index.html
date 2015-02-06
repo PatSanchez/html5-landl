@@ -2,11 +2,13 @@
 <html>
     <head>
         <title>Geolocation API</title>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-        <script src="script.js"></script>
     </head>
     <body>
-        <button id="get-location" onclick="getLocation()">Get my location!</button>
+        <p style="font-weight: bold;" id="in-bounds">Click the Get Location button to see if you are at the location below</p>
         <div id="map-canvas" style="height: 300px; width: 300px;"></div>
+        <button id="get-location" onclick="getLocation()">Get Location</button>
+
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+        <script src="script.js"></script>
     </body>
 </html>

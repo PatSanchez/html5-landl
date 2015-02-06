@@ -1,8 +1,11 @@
+var targetPoint = new google.maps.LatLng(38.629524, -90.195282);
+var map = loadMapWithMarker(targetPoint);
+
 function getLocation(){
   if (navigator.geolocation) {
     var timeoutVal = 10 * 1000 * 1000;
     navigator.geolocation.getCurrentPosition(
-      loadMap,
+      displayLocation,
       displayError,
       { enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
     );
@@ -12,16 +15,25 @@ function getLocation(){
   }
 }
 
-function loadMap(position) {
-  var userLocation, locationAccuracy, map, marker, circle;
+function loadMapWithMarker(latlng){
+  var map = new google.maps.Map(document.getElementById('map-canvas'), {
+    center: latlng,
+    zoom: 11
+  });
+  new google.maps.Marker({
+    position: latlng,
+    map: map,
+    title: "Second Street Office"
+  });
+
+  return map;
+}
+
+function displayLocation(position) {
+  var userLocation, locationAccuracy, marker, circle;
 
   userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
   locationAccuracy = position.coords.accuracy;
-
-  map = new google.maps.Map(document.getElementById('map-canvas'), {
-    center: userLocation,
-    zoom: 11
-  });
 
   marker = new google.maps.Marker({
     position: userLocation,
@@ -39,7 +51,19 @@ function loadMap(position) {
     center: userLocation,
     radius: locationAccuracy
   });
+
+  if (checkIfInRange(targetPoint, circle)) {
+    document.getElementById('in-bounds').innerHTML = 'You could be at the specified location';
+  }
+  else {
+    document.getElementById('in-bounds').innerHTML = 'You are not at the specified location';
+  }
   document.getElementsByTagName('body')[0].removeChild(document.getElementById('get-location'));
+}
+
+function checkIfInRange(latLng, circle){
+  var bounds = circle.getBounds();
+  return bounds.contains(latLng);
 }
 
 function displayError(error) {
