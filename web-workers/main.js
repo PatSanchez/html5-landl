@@ -90,6 +90,9 @@ function startComputationWithWorker() {
   var worker = new Worker('worker.js');
   worker.addEventListener('message', function(e) {
     console.log(e.data);
+    window.performance.mark('mark_worker_computation_completed');
+    window.performance.measure('measure_worker_computation', 'mark_worker_computation_started', 'mark_worker_computation_completed');
   }, false);
+  window.performance.mark('mark_worker_computation_started');
   worker.postMessage({ command: 'getCounts', parameter: userData})
 }
