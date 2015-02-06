@@ -1,7 +1,7 @@
 var targetPoint = new google.maps.LatLng(38.629524, -90.195282);
 var map = loadMapWithMarker(targetPoint);
 
-function getLocation(){
+function getLocation() {
   if (navigator.geolocation) {
     var timeoutVal = 10 * 1000 * 1000;
     navigator.geolocation.getCurrentPosition(
@@ -15,7 +15,7 @@ function getLocation(){
   }
 }
 
-function loadMapWithMarker(latlng){
+function loadMapWithMarker(latlng) {
   var map = new google.maps.Map(document.getElementById('map-canvas'), {
     center: latlng,
     zoom: 11
@@ -61,7 +61,7 @@ function displayLocation(position) {
   document.getElementsByTagName('body')[0].removeChild(document.getElementById('get-location'));
 }
 
-function checkIfInRange(latLng, circle){
+function checkIfInRange(latLng, circle) {
   var bounds = circle.getBounds();
   return bounds.contains(latLng);
 }

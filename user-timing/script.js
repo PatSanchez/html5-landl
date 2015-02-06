@@ -1,7 +1,7 @@
 //Spits out a table containing 100,000 records in two columns:
 // a random letter in the first column
 // and a random number 1 - 1,000,000 in the second
-function doLotsOfStuff(){
+function doLotsOfStuff() {
   window.performance.clearMarks();
   window.performance.clearMeasures();
   var randomData = generateRandomData();
@@ -12,7 +12,7 @@ function doLotsOfStuff(){
 //Returns an array of 100,000 objects containing a letter and number property.
 //Letter is a random letter
 //Number is a random number between 1 and 1,000,000
-function generateRandomData(){
+function generateRandomData() {
   window.performance.mark('mark_data_generation_started');
   var garbageArray = [];
   for (var i = 0; i < 10000; i++){
@@ -28,7 +28,7 @@ function generateRandomData(){
   return garbageArray;
 }
 
-function displayData(data){
+function displayData(data) {
   var table = document.getElementById('inject-garbage-here');
   window.performance.mark('mark_clear_display_started');
   table.innerHTML = '';
@@ -50,7 +50,7 @@ function displayData(data){
   window.performance.measure('measure_data_display', 'mark_data_display_started', 'mark_data_display_completed');
 }
 
-function showPerformanceData(){
+function showPerformanceData() {
   var table = document.getElementById('inject-performance-here');
   table.innerHTML = '';
   var headerRow = document.createElement('tr');
