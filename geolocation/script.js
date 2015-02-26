@@ -1,4 +1,4 @@
-var targetPoint = new google.maps.LatLng(38.629524, -90.195282);
+var targetPoint = new google.maps.LatLng(38.629424, -90.195382);
 var map = loadMapWithMarker(targetPoint);
 
 function getLocation() {
