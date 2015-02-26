@@ -85,6 +85,7 @@ function startComputation() {
   console.log(getCounts(userData));
   window.performance.mark('mark_computation_completed');
   window.performance.measure('measure_computation', 'mark_computation_started', 'mark_computation_completed');
+  console.log(window.performance.getEntriesByType('measure'));
 }
 function startComputationWithWorker() {
   var worker = new Worker('worker.js');
@@ -92,6 +93,7 @@ function startComputationWithWorker() {
     console.log(e.data);
     window.performance.mark('mark_worker_computation_completed');
     window.performance.measure('measure_worker_computation', 'mark_worker_computation_started', 'mark_worker_computation_completed');
+    console.log(window.performance.getEntriesByType('measure'));
   }, false);
   window.performance.mark('mark_worker_computation_started');
   worker.postMessage({ command: 'getCounts', parameter: userData})
