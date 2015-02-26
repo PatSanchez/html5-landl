@@ -4,7 +4,7 @@
         <title>Get User Media API</title>
         <style>
             #c {
-                background-image:url('globey.png');
+                background-image:url('beach.jpg');
                 background-repeat:no-repeat;
                 background-size: contain;
             }
@@ -15,8 +15,15 @@
     </head>
     <body>
         <video id="v" width="640" height="480"></video>
-        <canvas id="c" width="640" height="480"></canvas>
-        <button onclick="initialize()">Get Started!</button>
+        <canvas id="c" width="640" height="480" style="display: none;"></canvas>
+        <button id="start" onclick="initialize()">Get Started!</button>
+        <fieldset id="bg" style="display:none;">
+            <legend>Pick a Background</legend>
+            <input type="radio" name="bg" value="beach.jpg" checked>A
+            <input type="radio" name="bg" value="weather-map.jpg">B
+            <input type="radio" name="bg" value="globey.png">C
+        </fieldset>
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
         <script src="script.js"></script>
     </body>
 </html>
